@@ -44,7 +44,7 @@ enum Condition: String, Codable {
     case partlyCloudy = "partly-cloudy"
     case snow = "snow"
 }
-//
+
 enum Icon: String, Codable {
     case bknD = "bkn_d"
     case bknN = "bkn_n"
@@ -54,24 +54,3 @@ enum Icon: String, Codable {
     case skcD = "skc_d"
     case skcN = "skc_n"
 }
-//
-//// MARK: - Forecast
-//struct Forecast: Codable {
-//    let date: String
-//    let dateTs, week: Int
-//    let sunrise, sunset, riseBegin, setEnd: String
-//    let moonCode: Int
-//    let moonText: String
-//    let hours: [Fact]
-//
-//    enum CodingKeys: String, CodingKey {
-//        case date
-//        case dateTs
-//        case week, sunrise, sunset
-//        case riseBegin
-//        case setEnd
-//        case moonCode
-//        case moonText
-//        case hours
-//    }
-//}

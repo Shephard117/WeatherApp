@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED42A0E527772F0B00C9157E /* GetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42A0E427772F0A00C9157E /* GetLocation.swift */; };
 		ED631DC5277349C600968009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631DC4277349C600968009 /* AppDelegate.swift */; };
 		ED631DC7277349C600968009 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631DC6277349C600968009 /* SceneDelegate.swift */; };
 		ED631DC9277349C600968009 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631DC8277349C600968009 /* WeatherController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED42A0E427772F0A00C9157E /* GetLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		ED631DC1277349C600968009 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED631DC4277349C600968009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED631DC6277349C600968009 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				ED631DDA2776E30800968009 /* WeatherData.swift */,
 				ED631DDC2776E67600968009 /* WeatherManager.swift */,
 				ED631DDE2776EE1F00968009 /* WeatherModel.swift */,
+				ED42A0E427772F0A00C9157E /* GetLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			files = (
 				ED631DC9277349C600968009 /* WeatherController.swift in Sources */,
 				ED631DC5277349C600968009 /* AppDelegate.swift in Sources */,
+				ED42A0E527772F0B00C9157E /* GetLocation.swift in Sources */,
 				ED631DDD2776E67600968009 /* WeatherManager.swift in Sources */,
 				ED631DDB2776E30800968009 /* WeatherData.swift in Sources */,
 				ED631DDF2776EE1F00968009 /* WeatherModel.swift in Sources */,

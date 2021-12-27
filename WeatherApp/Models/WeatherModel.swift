@@ -8,9 +8,21 @@
 import Foundation
 
 struct WeatherModel {
-    let name: String
-    let temp: Int
-    let feelsLike: Int
-    let url: String
-    let windSpeed: Double
+    var name: String = ""
+    var temp: Int = 0
+    var feelsLike: Int = 0
+    var url: String = ""
+    var windSpeed: Double = 0
+    
+    init?(name: String, temp: Int, feelsLike: Int, url: String, windSpeed: Double){
+        self.name = name
+        self.temp = temp
+        self.feelsLike = feelsLike
+        self.url = url
+        self.windSpeed = windSpeed
+    }
+    
+    init(){
+        
+    }
 }

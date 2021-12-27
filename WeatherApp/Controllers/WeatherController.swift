@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 class WeatherController: UIViewController {
 
@@ -26,22 +25,34 @@ class WeatherController: UIViewController {
     let weatherManager = WeatherManager()
     
     
-    let cities = ["Сочи","Нью-Йорк","Новокузнецк"]
+    let cities = ["Нью-Йорк","Сочи","Новокузнецк"]
+    var weather = WeatherModel()
+    var citiesWeather = [WeatherModel]()
 
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addCities()
         weatherTable.dataSource = self
         weatherTable.delegate = self
         setUI()
+        if citiesWeather.isEmpty {
+            citiesWeather = Array(repeating: weather, count: cities.count)
+        }
+       
+        
     }
 
-    func findCity(city: String, handler: @escaping (_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> ()){
-        CLGeocoder().geocodeAddressString(city) { placemark, error in
+    func addCities() {
+        
+        getCityWeather(cities: cities) { index, weather in
+            self.citiesWeather[index] = weather
+            self.citiesWeather[index].name = self.cities[index]
             
         }
     }
+    
 
 }
 

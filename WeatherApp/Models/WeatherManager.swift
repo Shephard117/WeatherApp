@@ -9,11 +9,10 @@ import Foundation
 
 struct WeatherManager {
     
-    func fetchWeather(handler: @escaping (WeatherModel) -> Void) {
+    func fetchWeather(latitude: Double, longitude: Double, handler: @escaping (WeatherModel) -> Void) {
         
-        let urlString = "https://api.weather.yandex.ru/v2/forecast?lat=59.939099&long=30.315877"
+        let urlString = "https://api.weather.yandex.ru/v2/forecast?lat=\(latitude)&lon=\(longitude)"
         guard let url = URL(string: urlString) else { return }
-        
         var request = URLRequest(url: url, timeoutInterval: Double.infinity)
         request.addValue("479eb67f-2752-4570-aaa5-629202884e11", forHTTPHeaderField: "X-Yandex-API-Key")
         request.httpMethod = "GET"
@@ -43,7 +42,6 @@ struct WeatherManager {
         
         do {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            print(decodedData)
             let name = "Example"
             let temp = decodedData.fact.temp
             let feelsLike = decodedData.fact.feelsLike
