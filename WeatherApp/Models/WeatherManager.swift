@@ -47,7 +47,8 @@ struct WeatherManager {
             let feelsLike = decodedData.fact.feelsLike
             let url = decodedData.info.url
             let windSpeed = decodedData.fact.windSpeed
-            let weather = WeatherModel(name: name, temp: temp, feelsLike: feelsLike, url: url, windSpeed: windSpeed)
+            let condition = decodedData.fact.condition
+            let weather = WeatherModel(name: name, temp: temp, feelsLike: feelsLike, url: url, windSpeed: windSpeed, condition: condition.rawValue)
             return weather
         } catch {
             

@@ -23,7 +23,7 @@ struct Fact: Codable {
     let feelsLike: Int
     let icon: Icon
     let condition: Condition
-   let windSpeed: Double
+    let windSpeed: Double
     let pressureMm: Int
     
     enum CodingKeys: String, CodingKey {

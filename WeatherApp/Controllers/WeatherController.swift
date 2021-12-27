@@ -25,7 +25,7 @@ class WeatherController: UIViewController {
     let weatherManager = WeatherManager()
     
     
-    let cities = ["Нью-Йорк","Сочи","Новокузнецк"]
+    let cities = ["Нью-Йорк", "Сочи", "Новокузнецк", "Москва", "Кемерово", "Калиниград", "Новосибирск", "Томск", "Омск", "Красноярск"]
     var weather = WeatherModel()
     var citiesWeather = [WeatherModel]()
 
@@ -49,7 +49,9 @@ class WeatherController: UIViewController {
         getCityWeather(cities: cities) { index, weather in
             self.citiesWeather[index] = weather
             self.citiesWeather[index].name = self.cities[index]
-            
+            DispatchQueue.main.async {
+                self.weatherTable.reloadData()
+            }
         }
     }
     
@@ -69,9 +71,10 @@ extension WeatherController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListCell
-        cell.cityLable.text = cities[indexPath.row]
-        cell.tempLabel.text = "+2"
-        cell.conditionLabel.text = "Холодно очень"
+        cell.confugure(weather: citiesWeather[indexPath.row])
+//        cell.cityLable.text = cities[indexPath.row]
+//        cell.tempLabel.text = citiesWeather[indexPath.row].temperatureString
+//        cell.conditionLabel.text = "Скорость ветра: \(citiesWeather[indexPath.row].windSpeed)"
         return cell
     }
     

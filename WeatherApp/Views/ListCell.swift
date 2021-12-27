@@ -49,6 +49,12 @@ class ListCell: UITableViewCell {
         ])
     }
     
+    func confugure(weather: WeatherModel) {
+        self.cityLable.text = weather.name
+        self.tempLabel.text = weather.temperatureString
+        self.conditionLabel.text = weather.conditionRU
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
