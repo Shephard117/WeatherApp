@@ -12,7 +12,7 @@ class WeatherController: UIViewController {
     let weatherTable: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(ListCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
     
@@ -68,10 +68,10 @@ extension WeatherController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        content.text = cities[indexPath.row]
-        cell.contentConfiguration = content
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListCell
+        cell.cityLable.text = cities[indexPath.row]
+        cell.tempLabel.text = "+2"
+        cell.conditionLabel.text = "Холодно очень"
         return cell
     }
     

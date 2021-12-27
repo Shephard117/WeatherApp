@@ -17,6 +17,7 @@
 		ED631DDB2776E30800968009 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631DDA2776E30800968009 /* WeatherData.swift */; };
 		ED631DDD2776E67600968009 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631DDC2776E67600968009 /* WeatherManager.swift */; };
 		ED631DDF2776EE1F00968009 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631DDE2776EE1F00968009 /* WeatherModel.swift */; };
+		ED7943F72779D44C004B7EB6 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7943F62779D44C004B7EB6 /* ListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		ED631DDA2776E30800968009 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		ED631DDC2776E67600968009 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		ED631DDE2776EE1F00968009 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		ED7943F62779D44C004B7EB6 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				ED631DC4277349C600968009 /* AppDelegate.swift */,
 				ED631DC6277349C600968009 /* SceneDelegate.swift */,
+				ED7943F52779D420004B7EB6 /* Views */,
 				ED631DD92776E2F500968009 /* Models */,
 				ED631DD82776E2E900968009 /* Controllers */,
 				ED631DCA277349C600968009 /* Main.storyboard */,
@@ -93,6 +96,14 @@
 				ED42A0E427772F0A00C9157E /* GetLocation.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ED7943F52779D420004B7EB6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED7943F62779D44C004B7EB6 /* ListCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 				ED42A0E527772F0B00C9157E /* GetLocation.swift in Sources */,
 				ED631DDD2776E67600968009 /* WeatherManager.swift in Sources */,
 				ED631DDB2776E30800968009 /* WeatherData.swift in Sources */,
+				ED7943F72779D44C004B7EB6 /* ListCell.swift in Sources */,
 				ED631DDF2776EE1F00968009 /* WeatherModel.swift in Sources */,
 				ED631DC7277349C600968009 /* SceneDelegate.swift in Sources */,
 			);
