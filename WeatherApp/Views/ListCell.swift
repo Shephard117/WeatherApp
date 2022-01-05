@@ -51,7 +51,7 @@ class ListCell: UITableViewCell {
     
     func confugure(weather: WeatherModel) {
         self.cityLable.text = weather.name
-        self.tempLabel.text = weather.temperatureString
+        self.tempLabel.text = weather.temperatureString + "C°"
         self.conditionLabel.text = weather.conditionRU
     }
     

@@ -9,7 +9,7 @@ import UIKit
 
 class WeatherController: UIViewController {
     
-
+    
     let weatherTable: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,33 +18,35 @@ class WeatherController: UIViewController {
     }()
     
     let searchBar: UISearchBar = {
-       let searchBar = UISearchBar()
+        let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.placeholder = "Введите название города"
         return searchBar
     }()
     
     var delegate: WeatherControllerDelegate?
     
     let weatherManager = WeatherManager()
-    let cities = ["Нью-Йорк", "Сочи", "Новокузнецк", "Москва", "Кемерово", "Калиниград", "Новосибирск", "Томск", "Омск", "Красноярск"]
+    var cities = ["Нью-Йорк", "Сочи", "Новокузнецк", "Москва", "Кемерово", "Калиниград", "Новосибирск", "Томск", "Омск", "Красноярск"]
     var weather = WeatherModel()
     var citiesWeather = [WeatherModel]()
-
-  
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addCities()
         weatherTable.dataSource = self
         weatherTable.delegate = self
+        searchBar.delegate = self
         setUI()
         if citiesWeather.isEmpty {
             citiesWeather = Array(repeating: weather, count: cities.count)
         }
-       
+        
         
     }
-
+    
     func addCities() {
         
         getCityWeather(cities: cities) { index, weather in
@@ -79,15 +81,63 @@ extension WeatherController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let myVC = DescriptionController()
-        delegate = myVC
+        let descriptionVC = DescriptionController()
+        delegate = descriptionVC
         delegate?.updateWeather(with: citiesWeather[indexPath.row])
-        present(myVC, animated: true)
-       
+        present(descriptionVC, animated: true)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { action, view, handler in
+            
+            self.citiesWeather.remove(at: indexPath.row)
+            self.cities.remove(at: indexPath.row)
+            tableView.reloadData()
+            
+        }
+        
+        deleteAction.backgroundColor = .red
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
     }
     
 }
 
+//MARK: - Search Bar Delegate Methods
+
+extension WeatherController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let city = searchBar.text {
+            findCity(city: city) { coordinate, error in
+                if let coordinates = coordinate {
+                    self.cities.append(city)
+                self.weatherManager.fetchWeather(latitude: coordinates.latitude, longitude: coordinates.longitude) { weather in
+                    var weatherMod = weather
+                    weatherMod.name = city
+                    self.citiesWeather.append(weatherMod)
+                    DispatchQueue.main.async {
+                        self.weatherTable.reloadData()
+                    }
+                }
+                } else if error != nil {
+                    let alert = UIAlertController(title: "Ошибка", message: "Возможно ошибка в названии города", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Хорошо", style: .destructive))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+            searchBar.text = ""
+        
+    }
+    
+}
 
 //MARK: - setting constraint
 

@@ -14,7 +14,7 @@ struct WeatherManager {
         let urlString = "https://api.weather.yandex.ru/v2/forecast?lat=\(latitude)&lon=\(longitude)"
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url, timeoutInterval: Double.infinity)
-        request.addValue("479eb67f-2752-4570-aaa5-629202884e11", forHTTPHeaderField: "X-Yandex-API-Key")
+        request.addValue("\(apiKey)", forHTTPHeaderField: "X-Yandex-API-Key")
         request.httpMethod = "GET"
         
         let session = URLSession(configuration: .default)
@@ -26,7 +26,6 @@ struct WeatherManager {
             }
             
             guard let safeData = data else { return }
-         // print(String(data: safeData, encoding: .utf8)!)
             if let weather = parseJSON(from: safeData){
                 handler(weather)
             

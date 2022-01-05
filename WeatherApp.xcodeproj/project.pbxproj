@@ -19,6 +19,7 @@
 		ED631DDD2776E67600968009 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631DDC2776E67600968009 /* WeatherManager.swift */; };
 		ED631DDF2776EE1F00968009 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631DDE2776EE1F00968009 /* WeatherModel.swift */; };
 		ED7943F72779D44C004B7EB6 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7943F62779D44C004B7EB6 /* ListCell.swift */; };
+		EDA66B7B2785C84D00B8BBB6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA66B7A2785C84D00B8BBB6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		ED631DDC2776E67600968009 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		ED631DDE2776EE1F00968009 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		ED7943F62779D44C004B7EB6 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		EDA66B7A2785C84D00B8BBB6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				ED631DD92776E2F500968009 /* Models */,
 				ED631DD82776E2E900968009 /* Controllers */,
 				ED631DCA277349C600968009 /* Main.storyboard */,
+				EDA66B7A2785C84D00B8BBB6 /* Constants.swift */,
 				ED631DCD277349CF00968009 /* Assets.xcassets */,
 				ED631DCF277349CF00968009 /* LaunchScreen.storyboard */,
 				ED631DD2277349CF00968009 /* Info.plist */,
@@ -185,6 +188,7 @@
 				ED42A0E527772F0B00C9157E /* GetLocation.swift in Sources */,
 				ED631DDD2776E67600968009 /* WeatherManager.swift in Sources */,
 				ED631DDB2776E30800968009 /* WeatherData.swift in Sources */,
+				EDA66B7B2785C84D00B8BBB6 /* Constants.swift in Sources */,
 				ED1EA960277B2310003F4F45 /* DescriptionController.swift in Sources */,
 				ED7943F72779D44C004B7EB6 /* ListCell.swift in Sources */,
 				ED631DDF2776EE1F00968009 /* WeatherModel.swift in Sources */,
