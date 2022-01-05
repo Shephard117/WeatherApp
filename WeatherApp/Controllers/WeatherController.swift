@@ -8,6 +8,7 @@
 import UIKit
 
 class WeatherController: UIViewController {
+    
 
     let weatherTable: UITableView = {
         let tableView = UITableView()
@@ -22,9 +23,9 @@ class WeatherController: UIViewController {
         return searchBar
     }()
     
+    var delegate: WeatherControllerDelegate?
+    
     let weatherManager = WeatherManager()
-    
-    
     let cities = ["Нью-Йорк", "Сочи", "Новокузнецк", "Москва", "Кемерово", "Калиниград", "Новосибирск", "Томск", "Омск", "Красноярск"]
     var weather = WeatherModel()
     var citiesWeather = [WeatherModel]()
@@ -55,7 +56,8 @@ class WeatherController: UIViewController {
         }
     }
     
-
+    
+    
 }
 
 
@@ -72,12 +74,17 @@ extension WeatherController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListCell
         cell.confugure(weather: citiesWeather[indexPath.row])
-//        cell.cityLable.text = cities[indexPath.row]
-//        cell.tempLabel.text = citiesWeather[indexPath.row].temperatureString
-//        cell.conditionLabel.text = "Скорость ветра: \(citiesWeather[indexPath.row].windSpeed)"
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let myVC = DescriptionController()
+        delegate = myVC
+        delegate?.updateWeather(with: citiesWeather[indexPath.row])
+        present(myVC, animated: true)
+       
+    }
     
 }
 
@@ -107,4 +114,9 @@ extension WeatherController {
         
     }
     
+}
+
+
+protocol WeatherControllerDelegate{
+    func updateWeather(with weather: WeatherModel)
 }
