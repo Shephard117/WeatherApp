@@ -39,12 +39,13 @@ class WeatherController: UIViewController {
         weatherTable.dataSource = self
         weatherTable.delegate = self
         searchBar.delegate = self
-        setUI()
         if citiesWeather.isEmpty {
             citiesWeather = Array(repeating: weather, count: cities.count)
         }
-        
-        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        setUI()
     }
     
     func addCities() {
