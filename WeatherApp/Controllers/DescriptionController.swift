@@ -68,10 +68,12 @@ class DescriptionController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
     }
 
-
+    override func viewWillLayoutSubviews() {
+        setUI()
+    }
+    
 }
 
 

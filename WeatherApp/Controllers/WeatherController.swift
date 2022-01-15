@@ -75,7 +75,7 @@ extension WeatherController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListCell
-        cell.confugure(weather: citiesWeather[indexPath.row])
+        cell.configure(weather: citiesWeather[indexPath.row])
         return cell
     }
     
